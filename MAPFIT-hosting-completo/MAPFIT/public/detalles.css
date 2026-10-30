@@ -1,0 +1,31 @@
+:root{--plata:#dbe2ea;--plata-oscura:#8e9bab;--verde:#34D399;--verde-suave:#A9D3C5;--verde-hondo:#0F766E;--radius:32px;--radius-sm:18px;--border:rgba(219,226,234,.22);--border-strong:rgba(219,226,234,.42);--shadow-lg:0 20px 56px rgba(0,0,0,.44),0 8px 24px rgba(0,0,0,.30),0 0 0 1px rgba(219,226,234,.14),0 0 44px rgba(52,211,153,.07)}
+html{scrollbar-color:#34D399 #041637}
+::selection{background:rgba(52,211,153,.38);color:#fff}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px circle at 6% 4%,rgba(52,211,153,.15),transparent 60%),radial-gradient(820px circle at 98% 30%,rgba(53,124,182,.24),transparent 62%),radial-gradient(900px circle at 78% 98%,rgba(249,115,22,.14),transparent 60%),radial-gradient(rgba(219,226,234,.17) 1px,transparent 1.6px) 0 0/30px 30px,repeating-linear-gradient(135deg,rgba(219,226,234,.04) 0 1px,transparent 1px 52px)}
+section{border-radius:38px;border-color:rgba(219,226,234,.38)}
+section::before{background:linear-gradient(90deg,#357CB6,#dbe2ea,#34D399,#dbe2ea,#F97316);background-size:200% 100%}
+section::after{background:linear-gradient(90deg,transparent 0%,rgba(219,226,234,.5) 18%,#34D399 50%,rgba(219,226,234,.5) 82%,transparent 100%);background-size:200% 100%;box-shadow:0 0 26px rgba(52,211,153,.45),0 8px 26px rgba(0,0,0,.4)}
+html body main>section:nth-child(odd){background:radial-gradient(520px circle at 100% 0%,rgba(52,211,153,.10),transparent 62%),radial-gradient(rgba(219,226,234,.10) 1px,transparent 1.6px) 0 0/26px 26px,linear-gradient(165deg,rgba(6,24,63,.58) 0%,rgba(2,13,47,.74) 55%,rgba(1,7,32,.84) 100%)}
+html body main>section:nth-child(even){background:radial-gradient(520px circle at 0% 100%,rgba(219,226,234,.09),transparent 62%),radial-gradient(rgba(169,211,197,.10) 1px,transparent 1.6px) 0 0/26px 26px,linear-gradient(165deg,rgba(10,33,82,.52) 0%,rgba(1,7,32,.80) 60%,rgba(2,13,47,.72) 100%)}
+.mv-card,.service-card,.strategy-point,.anexo-card,.about-copy,.route-card,.pv-item{border-radius:var(--radius);box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.2)}
+.mv-card:hover,.service-card:hover,.strategy-point:hover,.anexo-card:hover,.pv-item:hover{border-color:var(--verde)}
+.route-card{border-radius:36px}
+html body main .org-chart-frame{border-radius:30px;border-color:rgba(219,226,234,.55)}
+header#sidebar{border-right:2px solid rgba(219,226,234,.55)}
+header#sidebar #mainNav a{border-radius:18px}
+header#sidebar #mainNav a:hover,header#sidebar #mainNav a.active,header#sidebar #mainNav a[aria-current]{box-shadow:inset 4px 0 0 #34D399}
+footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,#357CB6,#dbe2ea,#34D399,#F97316) 1}
+.w-shell{border-radius:36px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(53,124,182,.25),0 0 90px rgba(52,211,153,.14)}
+.w-field input,.w-seg button,.w-tabs{border-radius:18px}
+.w-tabs,.w-tabs button{border-radius:999px}
+html body main .ficha-form,html body main .ficha-summary,html body main .ficha-intro{border-radius:36px}
+html body main .ficha-form .form-field input,html body main .ficha-form .form-field select,html body main .ficha-form .form-field textarea,.mail-form input,.mail-form textarea{border-radius:18px}
+html body main .planes-panel .plan-card{border-radius:34px}
+html body main .planes-panel .plan-card:not(.featured):not(:hover):not(:focus-within){border-color:rgba(169,211,197,.7)}
+html body main .planes-panel .plan-features li svg{stroke:#34D399}
+html body main .plans-table{border-radius:28px;border-color:rgba(169,211,197,.6)}
+header#sidebar #mainNav a{border-color:rgba(219,226,234,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.26)}
+header#sidebar #mainNav a:hover,header#sidebar #mainNav a.active,header#sidebar #mainNav a[aria-current]{box-shadow:inset 4px 0 0 #34D399,inset 0 1px 0 rgba(255,255,255,.26)}
+.logo-mark{box-shadow:0 0 0 3px rgba(219,226,234,.72),0 0 0 8px rgba(52,211,153,.16),0 10px 26px rgba(0,0,0,.4)}
+.back-to-top{box-shadow:0 0 0 3px rgba(219,226,234,.7),0 10px 26px rgba(0,0,0,.45),0 0 24px rgba(249,115,22,.4)}
+.route-card{border:2px solid rgba(219,226,234,.75);box-shadow:0 22px 56px rgba(0,0,0,.5),0 0 0 6px rgba(219,226,234,.08),0 0 44px rgba(52,211,153,.14)}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>MAPFIT — Tu ruta hacia una vida saludable</title>
+<script>try{var d=document.documentElement,s=sessionStorage;if(s.getItem("mapfitRegistrado"))d.classList.add("w-done");if(s.getItem("mapfitSplash"))d.classList.add("w-splashed")}catch(e){}</script>
+<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="bienvenida.css">
+<link rel="stylesheet" href="detalles.css">
+<link rel="stylesheet" href="bienvenida-pro.css">
+<link rel="stylesheet" href="movil.css">
+<link rel="stylesheet" href="visor.css">
+<style>
+.reveal { opacity: 1 !important; transform: none !important; }
+#regCard .w-ok { display: none; }
+#regCard.done #regForm { display: none; }
+#regCard.done .w-ok { display: flex; }
+</style>
+</head>
+<body>
+
+<div id="splash" aria-hidden="true">
+  <div>
+    <div class="sp-box">
+      <div class="sp-glow"></div>
+      <div class="sp-ring"></div>
+      <img class="sp-logo" src="logo.jpeg" alt="">
+    </div>
+    <div class="sp-bar"><span></span></div>
+  </div>
+</div>
+
+<div id="welcome" class="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
+  <div class="w-orb o1"></div>
+  <div class="w-orb o2"></div>
+  <div class="w-deco" aria-hidden="true">
+    <span class="wd-grid"></span>
+    <span class="wd-ring r1"></span>
+    <span class="wd-ring r2"></span>
+    <span class="wd-dot d1"></span>
+    <span class="wd-dot d2"></span>
+    <span class="wd-dot d3"></span>
+    <span class="wd-dot d4"></span>
+    <span class="wd-dot d5"></span>
+  </div>
+  <div class="w-shell">
+    <aside class="w-brand">
+      <img src="logo.jpeg" alt="Logo MAPFIT" class="w-logo">
+      <div class="w-name">MAPFIT</div>
+      <p class="w-tag">Tu ruta hacia una vida saludable</p>
+      <svg class="w-route" viewBox="0 0 360 150" aria-hidden="true">
+        <path d="M18 128 C 90 128, 80 56, 140 56 S 214 120, 262 84 S 322 24, 342 24" fill="none" stroke="#F97316" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+        <circle class="n1" cx="18" cy="128" r="8" fill="#F97316"/>
+        <circle class="n2" cx="140" cy="56" r="8" fill="#F97316"/>
+        <circle class="n3" cx="262" cy="84" r="8" fill="#F97316"/>
+        <circle class="n4" cx="342" cy="24" r="9" fill="#fff" stroke="#F97316" stroke-width="4"/>
+      </svg>
+    </aside>
+    <div class="w-panel">
+      <div class="w-pane" id="regCard">
+        <h2 id="wTitle">Empieza tu ruta</h2>
+        <p class="w-sub">Escribe tus datos para entrar a MAPFIT.</p>
+        <form id="regForm" novalidate>
+          <div class="w-row">
+            <div class="w-field">
+              <label for="r-nombre">Nombre</label>
+              <input type="text" id="r-nombre" autocomplete="given-name" placeholder="María" required>
+            </div>
+            <div class="w-field">
+              <label for="r-apellido">Apellido</label>
+              <input type="text" id="r-apellido" autocomplete="family-name" placeholder="Torres" required>
+            </div>
+          </div>
+          <div class="w-field">
+            <label for="r-correo">Correo electrónico</label>
+            <input type="email" id="r-correo" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+          <div class="w-field">
+            <label for="r-doc">Documento de identidad</label>
+            <div class="w-seg" role="group" aria-label="Tipo de documento">
+              <button type="button" data-doc="DUI" aria-pressed="true">DUI</button>
+              <button type="button" data-doc="Carnet" aria-pressed="false">Carnet</button>
+            </div>
+            <input type="text" id="r-doc" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="00000000-0" required>
+          </div>
+          <button type="submit" class="w-btn" id="regBtn">Entrar a MAPFIT</button>
+          <div class="w-msg" id="regMsg" role="status" aria-live="polite"></div>
+          <button type="button" class="w-skip-btn" id="wSkip">Continuar sin registrarme</button>
+        </form>
+        <div class="w-ok" aria-live="polite">
+          <div class="w-check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div class="w-title2" id="regOkTitle">¡Bienvenido!</div>
+          <p class="w-sub">Estamos abriendo tu ruta.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<header id="sidebar">
+  <button class="sidebar-toggle-btn" id="toggleBtn" title="Contraer/expandir menú">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="header-inner wrap" style="padding-left:0;padding-right:0;">
+    <a href="#inicio" class="brand-block">
+      <span class="logo-mark">
+        <img src="logo.jpeg" alt="Logo MAPFIT">
+      </span>
+      <span class="logo sidebar-text">MAPFIT</span>
+      <span class="tagline sidebar-text">Tu ruta hacia una vida saludable</span>
+    </a>
+
+    <nav id="mainNav">
+      <a href="#inicio" class="nav-link"><span class="nav-ico">🏠</span><span class="nav-lbl sidebar-text">Inicio</span></a>
+      <a href="#nosotros" class="nav-link"><span class="nav-ico">👥</span><span class="nav-lbl sidebar-text">Nosotros</span></a>
+      <a href="#objetivos" class="nav-link"><span class="nav-ico">🎯</span><span class="nav-lbl sidebar-text">Objetivos</span></a>
+      <a href="#idea-negocio" class="nav-link"><span class="nav-ico">💡</span><span class="nav-lbl sidebar-text">Idea de negocio</span></a>
+      <a href="#mision-vision" class="nav-link"><span class="nav-ico">🌟</span><span class="nav-lbl sidebar-text">Misión y visión</span></a>
+      <a href="#valores" class="nav-link"><span class="nav-ico">💎</span><span class="nav-lbl sidebar-text">Valores</span></a>
+      <a href="#principios" class="nav-link"><span class="nav-ico">⚖️</span><span class="nav-lbl sidebar-text">Principios</span></a>
+      <a href="#politica-valores" class="nav-link"><span class="nav-ico">📋</span><span class="nav-lbl sidebar-text">Política</span></a>
+      <a href="#anexos" class="nav-link"><span class="nav-ico">📎</span><span class="nav-lbl sidebar-text">Anexos</span></a>
+      <a href="#cronograma" class="nav-link"><span class="nav-ico">📅</span><span class="nav-lbl sidebar-text">Cronograma</span></a>
+      <a href="#organigrama" class="nav-link"><span class="nav-ico">🏛️</span><span class="nav-lbl sidebar-text">Organigrama</span></a>
+      <a href="#perfil" class="nav-link" data-abrir-perfil><span class="nav-ico">👤</span><span class="nav-lbl sidebar-text">Usuario</span></a>
+      <a href="#contacto" class="nav-cta nav-link"><span class="nav-ico">📞</span><span class="nav-lbl sidebar-text">Contáctanos</span></a>
+    </nav>
+  </div>
+</header>
+
+<button class="sidebar-float-btn" id="floatBtn" title="Abrir menú">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<main id="top">
+
+  <section class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">📱 Gestor virtual para la salud</span>
+        <h1>Tu ruta hacia una vida más saludable, paso a paso.</h1>
+        <p>MAPFIT convierte la rehabilitación y el cambio de hábitos en un recorrido claro: registra tu estado de salud, recibe una rutina y un plan de alimentación hechos para ti, y mira tu progreso avanzar en tiempo real.</p>
+      </div>
+
+      <div class="route-card">
+        <span class="mono">Tu recorrido en MAPFIT</span>
+        <div class="route-title">De la primera ficha a la recuperación</div>
+        <svg class="route-svg" viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 190 C 100 190, 90 90, 160 90 S 240 190, 300 130 S 400 40, 440 40"
+                fill="none" stroke="#61BDDC" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+          <g>
+            <circle cx="20" cy="190" r="9" fill="#E2662D"/>
+            <text x="20" y="212" text-anchor="middle" class="route-stop-num">01</text>
+            <text x="20" y="167" text-anchor="middle" class="route-stop-label">Ficha de salud</text>
+          </g>
+          <g>
+            <circle cx="160" cy="90" r="9" fill="#E2662D"/>
+            <text x="160" y="112" text-anchor="middle" class="route-stop-num">02</text>
+            <text x="160" y="67" text-anchor="middle" class="route-stop-label">Plan y rutina</text>
+          </g>
+          <g>
+            <circle cx="300" cy="130" r="9" fill="#E2662D"/>
+            <text x="300" y="152" text-anchor="middle" class="route-stop-num">03</text>
+            <text x="300" y="107" text-anchor="middle" class="route-stop-label">Seguimiento diario</text>
+          </g>
+          <g>
+            <circle cx="440" cy="40" r="8" fill="#F25C19"/>
+            <circle cx="440" cy="40" r="3" fill="#FFFFFF"/>
+            <text x="418" y="22" text-anchor="middle" class="route-stop-label">Recuperación</text>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="nosotros" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">👥 Sobre nosotros</span>
+        <h2>Un acompañante, no solo una receta.</h2>
+      </div>
+
+      <div class="about-copy">
+          <p>Alrededor del país, muchas personas padecen de distintos problemas de salud que han surgido a raíz de sus condiciones físicas, siendo una de las más principales razones: el sobrepeso por sedentarismo o malos hábitos alimenticios. En muchas ocasiones los hospitales y seguros sociales simplemente le recetan medicamentos al paciente para contrarrestar enfermedades que tienen que ver con problemas cardiovasculares, respiratorios y en su gran mayoría problemas gastrointestinales, cuando realmente no solo se trata de curarlos a base de dosis de medicamentos.</p>
+          <p>El día de hoy introducimos la aplicación MAPFIT, una aplicación diferente en la cual hemos pensado más allá de recetar dosis de medicamentos y dar avisos vacíos acerca de la importancia de la actividad física. No sólo puede llegar a las personas que hayan pasado consulta a un seguro social, sino que puede llegar a cualquiera que la necesite.</p>
+        </div>
+    </div>
+  </section>
+
+   <section id="objetivos" class="reveal">
+    <div class="wrap">
+      <div id="objetivos-detalle" style="margin-top:52px;">
+        <div class="section-head" style="margin-bottom:32px;">
+          <span class="eyebrow">🎯 Objetivos general y específicos</span>
+          <h2>Lo que buscamos.</h2>
+        </div>
+        <div class="strategy-grid">
+          <div class="strategy-point reveal">
+            <img src="4_Variedad_de_alimentos_frescos_y_naturales.jpg" alt="Fresco">
+            <div class="strategy-body">
+              <span class="mono">General</span>
+              <h3>🚪 Acceso real a mejores estilos de vida</h3>
+              <p>Cambiar estilos de vida para mejor de todo aquel que necesite atención médica por condiciones de salud graves mediante servicios completos y de precios accesibles para asegurar que el usuario logre tener una mejor calidad de vida y satisfacer al cliente incentivándolo a obtenerla.</p>
+            </div>
+          </div>
+          <div class="strategy-point reveal">
+            <img src="3_Plato_saludable_con_variedad_de_alimentos.jpg" alt="saludable">
+            <div class="strategy-body">
+              <span class="mono">Específico 1</span>
+              <h3>💪 Cambio físico y motivación</h3>
+              <p>Lograr un cambio físico en el usuario y rehabilitar su estado de salud, generándole satisfacción por alcanzar una vida más saludable; todo mediante incentivos y diferentes formas de motivación para que el usuario se sienta retado a alcanzar una de sus posibles metas más grandes.</p>
+            </div>
+          </div>
+          <div class="strategy-point reveal">
+            <img src="2_Pareja_corriendo_al_aire_libre.jpg" alt="Corriendo">
+            <div class="strategy-body">
+              <span class="mono">Específico 2</span>
+              <h3>🥗 Hábitos cotidianos saludables</h3>
+              <p>Fomentar hábitos cotidianos saludables en la vida del usuario para que mantenga un buen estado de salud mediante consejos que le advierten al usuario sobre las consecuencias de los 
+malos hábitos en el futuro de su vida y cómo le pueden afectar, inculcándoles los valores de la constancia y la determinación
+</p>
+            </div>
+          </div>
+          <div class="strategy-point reveal">
+            <img src="1_Pareja_estirando_en_sesion_de_rehabilitacion.jpg" alt="Pareja">
+            <div class="strategy-body">
+              <span class="mono">Específico 3</span>
+              <h3>✅ Servicios accesibles y sin falsas expectativas</h3>
+              <p>Ofrecer planes de servicios completos y estables a un precio accesible para todos con el motivo de incentivar a grandes masas de personas a que sean activas físicamente, proveyéndoles de todo lo necesario para que obtenga resultados reales sin exagerarlos para evitar generar falsas expectativas en el usuario.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+
+
+   <section id="idea-negocio" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">💡 Idea de negocio</span>
+        <h2>Salud, tecnología y acompañamiento en un solo lugar.</h2>
+      </div>
+      <div class="about-copy">
+        <p>MAPFIT es un gestor virtual para la salud: una aplicación web de seguimiento completo que toma el rol de un asistente médico personal que acompaña a los usuarios en todos sus procesos de seguimiento médico y actividad física para mantener una rutina saludable. Ataca principalmente enfermedades relacionadas con el sedentarismo, al sobrepeso e incluso a la obesidad, así como los malos hábitos alimenticios y la falta de actividad física, yendo más allá de la práctica común de solo recetar medicamentos sin atacar la raíz del problema.
+
+Entre sus servicios ofrece planes accesibles y personalizados según la enfermedad que el usuario especifique mediante encuestas, monitoreo del progreso con gráficas (peso, glucosa, niveles de azúcar en sangre, etc., bajo el monitoreo de un médico profesional.) obtenidas mediante visitas médicas frecuentes, rutinas y dietas adaptadas a cada usuario, y un sistema de incentivos y gamificación (logros, notificaciones, racha diaria) para motivar la constancia. Además, cuenta con establecimientos físicos para atención al cliente y sugerencias, donde también se venden productos de alta calidad como complementos vitamínicos (Vitamina C, Zinc, Vitamina B, etc.) y alimentos como frutas, verduras y frutos medicinales.
+
+Los principales usuarios de la app son todos aquellos que hayan pasado consulta a un seguro social y también cualquier persona que necesite mejorar su salud, así como la comunidad en general, al generar mejores hábitos alimenticios y una mejor calidad de vida.
+
+En consecuencia, los beneficiados de MAPFIT serán los usuarios que busquen mejorar su salud y calidad de vida en general, al fomentar hábitos saludables y una vida más activa.</p>
+
+</div>
+    </div>
+  </section>
+
+  <section id="mision-vision" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">🌟 Misión y visión</span>
+        <h2>Nuestro propósito y hacia dónde caminamos.</h2>
+      </div>
+      <div class="mv-stack">
+        <div class="mv-card reveal">
+          <span class="mono"></span>
+          <h2>💪 Misión.</h2>
+        <p>Somos una empresa que busca lograr que los usuarios con enfermedades subyacentes al sobrepeso, sedentarismo y obesidad, e incluso las personas que buscan una mejor calidad de vida, alcancen una rehabilitación completa y sostenible, mediante un acompañamiento cercano, accesible y adaptado a las necesidades de cada uno. A partir de ese proceso, buscamos que los usuarios creen mejores hábitos en su vida cotidiana, esos pequeños cambios que parecen poco importantes pero que tienen un gran impacto en su salud. </p>
+         </div>
+        <div class="mv-card reveal">
+          <span class="mono"></span>
+          <h2>📱 Visión.</h2>
+         <p>Desarrollar como empresa una aplicación móvil que ofrezca un servicio completo de rehabilitación y monitoreo de la salud general de los usuarios, adaptándose a sus necesidades mediante encuestas en las que se les pide especificar cuál es la enfermedad que padecen, para ofrecerles un plan de servicio personalizado con cuotas accesibles de pago, por el tiempo que ellos mismos estimen necesario. A futuro, aspiramos convertirla en una aplicación multiplataforma, disponible en distintos dispositivos y sistemas, para llegar a más personas.</p>
+      </div>
+    </div>
+  </div>
+   
+  </section>
+
+
+  
+
+  <section id="politica-valores" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">📋 Política, principios y valores</span>
+        <h2>Las reglas y normas que nos rigen puertas adentro.</h2>
+        <p>Confidencialidad de datos, conducta y los principios que forman un ambiente íntegro y seguro.</p>
+      </div>
+
+      <div class="pv-columns">
+        <div class="pv-col pv-col-b reveal" id="valores">
+          <h3>💎 Valores</h3>
+          <p>Lo que nos guía puertas adentro y con cada usuario.</p>
+          <ul class="pv-list">
+            <li><b>Respeto</b><span>Con tu información y tu proceso</span></li>
+            <li><b>Honestidad</b><span>Resultados reales, sin expectativas falsas</span></li>
+            <li><b>Disciplina</b><span>Rutinas constantes y bien acompañadas</span></li>
+            <li><b>Empatía</b><span>Entendemos en qué situación te encuentras</span></li>
+            <li><b>Calidad</b><span>En la app, la tienda y el servicio en base a la retroalimentación de los usuarios según su experiencia</span></li>
+            <li><b>Innovación</b><span>Buscamos constantemente formas de mejorar y diferenciarnos</span></li>
+            
+          </ul>
+        </div>
+
+        <div class="pv-col pv-col-a reveal" id="principios">
+          <h3>⚖️ Principios</h3>
+          <p>Las bases sobre las que construimos nuestra cultura organizacional.</p>
+          <ul class="pv-list">
+            <li><b>Priorizamos las necesidades del cliente</b><span>Si el cliente pide algo, es la prioridad</span></li>
+            <li><b>Actuamos con honestidad, rectitud y coherencia</b><span>Nuestra forma de ser es un reflejo de nuestra empresa</span></li>
+            <li><b>Formamos un ambiente íntegro y ético</b><span>Mediante la convivencia adecuada tanto dentro de la empresa como con nuestra relación con nuestros clientes.</span></li>
+            <li><b>Garantizamos calidad y excelencia</b><span>Nuestro producto es de la más alta calidad</span></li>
+            <li><b>Innovamos con el bienestar colectivo</b><span>Pensamos en cómo mejorar la salud de los demás</span></li>
+            <li><b>Promovemos hábitos de vida saludable</b><span>Nuestra empresa promueve una forma saludable de vivir</span></li>
+            <li><b>Excelencia</b><span>Nos superamos cada día para ofrecer siempre lo mejor a nuestros clientes.</span></li>
+          </ul>
+        </div>
+
+        <div class="pv-col pv-col-b reveal" id="Politicas">
+          <h3>📋 Política</h3>
+          <p>Los pilares que sostienen nuestra empresa.</p>
+          <ul class="pv-list">
+            <li><b>Código de Conducta</b><span>Nuestra forma de convivir con los demás</span></li>
+            <li><b>Confidencialidad de Datos</b><span>Protegemos tu información personal</span></li>
+            <li><b>Uso de Recursos de la Empresa</b><span>Todo recurso informático provisto por nuestra empresa debe ser utilizado únicamente para cumplir todas las tareas laborales asignadas.</span></li>
+            <li><b>Código de Vestimenta</b><span>Nuestro estilo de vestir</span></li>
+            <li><b>Finanzas (Gastos e inversiones)</b><span>El control del flujo de dinero de la empresa</span></li>
+            <li><b>Comunicación, atención al cliente y devoluciones</b><span>Interacción abierta del personal administrativo de la empresa con los clientes.</span></li>
+            <li><b>Puntualidad y asistencia</b><span>La hora de entrada y salida</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="anexos" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">📎 Anexos</span>
+        <h2>Material de respaldo del proyecto.</h2>
+        <p>Logos, referencias visuales y material gráfico organizados.</p>
+      </div>
+      <div class="strategy-grid">
+        <div class="anexo-card">
+          <span class="mono">Anexo 1</span>
+          <div class="anexo-frame">
+            <img src="5_Grafica_de_condiciones_de_salud_que_atiende_MAPFIT.png" alt="Grafica">
+          </div>
+          <h3>🏥 Condiciones de salud que atiende MAPFIT</h3>
+          <p>Gráfica del nivel de enfoque del servicio según cada condición de salud.</p>
+        </div>
+        <div class="anexo-card">
+          <span class="mono">Anexo 2</span>
+          <div class="anexo-frame">
+            <img src="6_Grafica_de_beneficiarios_de_MAPFIT.png" alt="Grafica">
+          </div>
+          <h3>👥 Beneficiarios de MAPFIT</h3>
+          <p>Distribución de los distintos tipos de usuarios que se benefician del servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="organigrama" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">🏛️ Estructura</span>
+        <h2>Organigrama de MAPFIT</h2>
+        <p>Así se organiza el equipo detrás de la app y los establecimientos físicos.</p>
+      </div>
+      <div class="org-chart-frame">
+        <img src="7_Organigrama_MAPFIT.jpg" alt="Org">
+      </div>
+    </div>
+  </section>
+
+  <section id="cronograma" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">📜 Cronograma.</span>
+        <h2>Desde el dia uno hasta hoy.</h2>
+      </div>
+      <div class="org-chart-frame" style="margin-top:28px;">
+        <h3 style="margin-bottom:16px;"></h3>
+        <img src="cronograma.jpg" alt="Cronograma">
+      </div>
+    </div>
+  </section>
+
+  
+
+
+
+<button class="back-to-top" id="backToTop" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+</main>
+
+<footer>
+  <div class="wrap footer-simple" id="contacto">
+    <div class="footer-social">
+      <a class="social-item" href="ficha.html">
+        <div class="social-circle" style="background:var(--ember);border-color:var(--ember);">
+          <span style="color:var(--sand);font-weight:700;">+</span>
+        </div>
+        <span>Ficha de salud</span>
+      </a>
+
+      <a class="social-item" href="https://instagram.com/mapfitgestor_salud" target="_blank" rel="noopener">
+        <div class="social-circle">
+          <img src="instagram.jpeg" alt="Instagram">
+        </div>
+        <span>Instagram: @mapfitgestor_salud</span>
+      </a>
+
+      <a class="social-item" href="https://facebook.com/MAPFITOficial" target="_blank" rel="noopener">
+        <div class="social-circle">
+          <img src="facebook.jpeg" alt="Facebook">
+        </div>
+        <span>Facebook: MAPFIT Oficial</span>
+      </a>
+
+      <a class="social-item" href="https://wa.me/50371351565" target="_blank" rel="noopener">
+        <div class="social-circle">
+          <img src="whatsapp.jpeg" alt="WhatsApp">
+        </div>
+        <span>WhatsApp: 503 7135 1565</span>
+      </a>
+    </div>
+    <span class="footer-copy">© 2026 MAPFIT. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="visor.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="module">
+  import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { iniciarPerfil, otorgar } from "./perfil.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC0JKLRPv9O6-ks7bvEqjJkkz86FGk9lko",
+    authDomain: "mi-paina-web.firebaseapp.com",
+    projectId: "mi-paina-web",
+    storageBucket: "mi-paina-web.firebasestorage.app",
+    messagingSenderId: "450612910890",
+    appId: "1:450612910890:web:8a373a3e4b40872e825c53"
+  };
+
+  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  iniciarPerfil();
+
+  function aviso(texto, ok) {
+    let el = document.getElementById("estadoFirebase");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "estadoFirebase";
+      el.style.cssText = "position:fixed;left:16px;bottom:16px;z-index:99999;padding:12px 18px;border-radius:12px;font:600 15px sans-serif;color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.4);max-width:340px";
+      document.body.appendChild(el);
+    }
+    el.style.background = ok === false ? "#c0392b" : ok === true ? "#1e8449" : "#34495e";
+    el.textContent = texto;
+    el.style.display = "block";
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.style.display = "none"; }, 6000);
+  }
+
+  const $ = (id) => document.getElementById(id);
+  const msg = (t, err) => { $("regMsg").textContent = t; $("regMsg").className = "reg-msg" + (err ? " err" : ""); };
+
+  function avisarPersonal(correo) {
+    if (!window.emailjs) return;
+    const fecha = new Date().toLocaleString("es-SV", { dateStyle: "full", timeStyle: "short" });
+    try {
+      emailjs.init({ publicKey: "6K_DY8izYZUYQk0yX" });
+      emailjs.send("service_svkl3tj", "template_kv8qz8n", {
+        nombre: correo,
+        email: correo,
+        asunto: "Registro en MAPFIT",
+        mensaje: "El usuario " + correo + " se registró el " + fecha + "."
+      }).catch((err) => console.error("Error EmailJS:", err));
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  function cerrarBienvenida() {
+    try { sessionStorage.setItem("mapfitRegistrado", "1"); } catch (e) {}
+    const w = $("welcome");
+    w.classList.add("leave");
+    setTimeout(() => document.documentElement.classList.add("w-done"), 550);
+  }
+  $("wSkip").addEventListener("click", cerrarBienvenida);
+  setTimeout(() => { const i = $("r-nombre"); if (i) i.focus(); }, 400);
+
+  let tipoDoc = "DUI";
+  document.querySelectorAll(".w-seg button").forEach((b) => b.addEventListener("click", () => {
+    tipoDoc = b.dataset.doc;
+    document.querySelectorAll(".w-seg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    const i = $("r-doc");
+    i.value = "";
+    i.classList.remove("invalid");
+    i.maxLength = tipoDoc === "DUI" ? 10 : 20;
+    i.placeholder = tipoDoc === "DUI" ? "00000000-0" : "Número de carnet";
+    i.inputMode = tipoDoc === "DUI" ? "numeric" : "text";
+    i.focus();
+  }));
+
+  $("r-doc").addEventListener("input", (e) => {
+    if (tipoDoc === "DUI") {
+      const d = e.target.value.replace(/\D/g, "").slice(0, 9);
+      e.target.value = d.length > 8 ? d.slice(0, 8) + "-" + d.slice(8) : d;
+    } else {
+      e.target.value = e.target.value.replace(/[^A-Za-z0-9-]/g, "").toUpperCase().slice(0, 20);
+    }
+  });
+
+  $("regForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nombre = $("r-nombre").value.trim();
+    const apellido = $("r-apellido").value.trim();
+    const correo = $("r-correo").value.trim().toLowerCase();
+    const documento = $("r-doc").value.trim();
+
+    ["r-nombre", "r-apellido", "r-correo", "r-doc"].forEach((id) => $(id).classList.remove("invalid"));
+    if (!nombre) { $("r-nombre").classList.add("invalid"); return msg("Escribe tu nombre.", true); }
+    if (!apellido) { $("r-apellido").classList.add("invalid"); return msg("Escribe tu apellido.", true); }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) { $("r-correo").classList.add("invalid"); return msg("Escribe un correo válido.", true); }
+
+    const docValido = tipoDoc === "DUI" ? /^\d{8}-\d$/.test(documento) : /^[A-Z0-9-]{4,20}$/.test(documento);
+    if (!docValido) {
+      $("r-doc").classList.add("invalid");
+      return msg(tipoDoc === "DUI" ? "Escribe tu DUI completo: 8 dígitos, guion y 1 dígito." : "Escribe tu número de carnet: letras y números, mínimo 4.", true);
+    }
+
+    $("regBtn").disabled = true;
+    msg("Guardando tus datos...");
+    try {
+      await addDoc(collection(db, "usuarios"), { nombre, apellido, correo, tipoDocumento: tipoDoc, documento, creado: serverTimestamp() });
+      try { localStorage.setItem("mapfitCorreo", correo); } catch (e) {}
+      otorgar("registro", { nombre, apellido, correo });
+      $("regOkTitle").textContent = "¡Bienvenido, " + nombre + "!";
+      $("regCard").classList.add("done");
+      avisarPersonal(correo);
+      aviso("✓ Registro guardado", true);
+      setTimeout(cerrarBienvenida, 1500);
+    } catch (err) {
+      console.error(err);
+      msg("No se pudo guardar tus datos. Intenta de nuevo.", true);
+      $("wSkip").style.display = "block";
+    }
+    $("regBtn").disabled = false;
+  });
+</script>
+
+
+
+<script>
+(function () {
+  var s = document.getElementById("splash");
+  if (!s) return;
+  setTimeout(function () {
+    s.classList.add("leave");
+    document.documentElement.classList.add("w-splashed");
+    try { sessionStorage.setItem("mapfitSplash", "1"); } catch (e) {}
+    setTimeout(function () { s.remove(); }, 800);
+  }, 2000);
+})();
+</script>
+</body>
+</html>

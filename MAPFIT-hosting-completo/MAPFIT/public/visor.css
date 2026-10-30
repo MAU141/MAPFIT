@@ -1,0 +1,26 @@
+.org-chart-frame,.anexo-frame{position:relative;cursor:zoom-in}
+.org-chart-frame::after,.anexo-frame::after{content:"Toca para ampliar";position:absolute;right:10px;bottom:10px;padding:7px 14px;border-radius:999px;font-size:.8rem;font-weight:800;line-height:1.2;color:#fff;background:rgba(7,26,66,.88);border:1.5px solid rgba(52,211,153,.75);box-shadow:0 6px 18px rgba(0,0,0,.4);pointer-events:none}
+.org-chart-frame img,.anexo-frame img{cursor:zoom-in}
+.org-chart-frame img:focus-visible,.anexo-frame img:focus-visible{outline:3px solid #34D399;outline-offset:3px}
+html.visor-open,html.visor-open body{overflow:hidden}
+.visor{position:fixed;inset:0;z-index:20000;display:flex;flex-direction:column;background:rgba(1,7,32,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);animation:visorIn .25s ease both}
+.visor[hidden]{display:none}
+.visor-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:max(10px,env(safe-area-inset-top)) 12px 10px;background:linear-gradient(180deg,rgba(10,33,82,.95),rgba(4,22,55,.95));border-bottom:1.5px solid rgba(219,226,234,.3)}
+.visor-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:1rem;font-weight:800;color:#fff;text-align:left;text-align-last:left}
+.visor-tools{display:flex;flex:none;gap:8px}
+.visor-btn{min-width:44px;min-height:44px;padding:0 14px;border:1.5px solid rgba(219,226,234,.55);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:1.1rem;font-weight:800;line-height:1;text-align:center;text-align-last:center;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .2s,box-shadow .2s,transform .15s}
+.visor-fit{font-size:.9rem}
+.visor-btn:hover,.visor-btn:focus-visible{border-color:#34D399;box-shadow:0 0 16px rgba(52,211,153,.5)}
+.visor-btn:active{transform:scale(.94)}
+.visor-x{border-color:#ffd2b0;background:linear-gradient(135deg,#F97316,#F25C19)}
+.visor-stage{flex:1;min-height:0;padding:12px;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom}
+.visor-stage img{display:block;max-width:none;height:auto;border-radius:12px;background:#fff;box-shadow:0 14px 40px rgba(0,0,0,.55);cursor:zoom-in}
+.visor-hint{margin:0;padding:8px 14px max(10px,env(safe-area-inset-bottom));font-size:.85rem;line-height:1.4;text-align:center;text-align-last:center;color:rgba(255,255,255,.75)}
+@keyframes visorIn{from{opacity:0}to{opacity:1}}
+@media (max-width:480px){
+.visor-btn{min-width:42px;padding:0 11px}
+.visor-title{font-size:.9rem}
+}
+@media (prefers-reduced-motion:reduce){
+.visor{animation:none}
+}

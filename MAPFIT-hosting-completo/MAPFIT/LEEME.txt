@@ -1,0 +1,14 @@
+MAPFIT - proyecto para Firebase Hosting
+=======================================
+Estructura:
+  firebase.json      configuracion (publica la carpeta "public")
+  .firebaserc        proyecto: mi-paina-web
+  firestore.rules    reglas para pegar en la consola de Firebase (no se publican con el hosting)
+  public\            el sitio (mapfit.html, ficha.html, perfil.js, css, imagenes...)
+
+Publicar:
+  1. Instalar Node.js LTS (https://nodejs.org)
+  2. En CMD:  npm install -g firebase-tools
+  3. firebase login
+  4. cd a esta carpeta y ejecutar:  firebase deploy --only hosting
+  5. Abrir  https://mi-paina-web.web.app  con Ctrl + F5

@@ -1,0 +1,49 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /usuarios/{id} {
+      allow create: if request.resource.data.keys().hasOnly(
+        ['nombre','apellido','correo','tipoDocumento','documento','creado']
+      );
+      allow read, update, delete: if false;
+    }
+
+    match /fichas/{id} {
+      allow create: if request.auth != null
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.keys().hasOnly(
+          ['uid','correoCuenta','nombre','edad','peso','altura','condicion','actividad','objetivo','plan','ciclo','notas','fecha']
+        );
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    match /mensajes/{id} {
+      allow create: if request.resource.data.keys().hasOnly(
+        ['nombre','email','asunto','mensaje','fecha']
+      );
+      allow read, update, delete: if false;
+    }
+
+    // NUEVO: perfil de cada visitante (insignias, nombre y correo)
+    match /perfiles/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(
+          ['nombre','apellido','correo','insignias','dias','sesiones','plan','ciclo','creado','actualizado']
+        )
+        && (!('insignias' in request.resource.data)
+            || request.resource.data.insignias.hasOnly(['bienvenida','registro','ficha','mensaje','constante','rutina','semana']))
+        && (!('dias' in request.resource.data) || request.resource.data.dias.size() <= 400)
+        && (!('sesiones' in request.resource.data) || request.resource.data.sesiones.size() <= 800)
+        && (!('plan' in request.resource.data) || request.resource.data.plan in ['Básico','Recuperación','Bienestar total'])
+        && (!('ciclo' in request.resource.data) || request.resource.data.ciclo in ['mensual','anual']);
+      allow delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

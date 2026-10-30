@@ -1,0 +1,56 @@
+@property --spot{syntax:"<number>";inherits:true;initial-value:0}
+main .ficha-form,main .ficha-summary{border:2px solid transparent;background:linear-gradient(rgba(8,20,48,.97),rgba(8,20,48,.97)) padding-box,linear-gradient(135deg,#f4f7fb 0%,#7d8b9c 25%,#dbe2ea 50%,#8e9bab 68%,#F97316 100%) border-box;box-shadow:0 26px 60px rgba(0,4,16,.55),0 0 40px rgba(53,124,182,.18)}
+main .ficha-summary{border-left-width:2px}
+main .ficha-intro{border:2px solid transparent;background:linear-gradient(165deg,#1A4D94 0%,#0A2152 55%,#041637 100%) padding-box,linear-gradient(135deg,#f4f7fb 0%,#7d8b9c 30%,#dbe2ea 55%,#F97316 100%) border-box}
+main .ficha-group::after{background:linear-gradient(90deg,#cbd5e1,transparent)}
+main .ficha-form .form-field input,main .ficha-form .form-field select,main .ficha-form .form-field textarea{border:1.5px solid rgba(203,213,225,.5);background-color:rgba(1,7,32,.72);box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+main .ficha-form .form-field input:hover,main .ficha-form .form-field select:hover,main .ficha-form .form-field textarea:hover{border-color:#e8edf3}
+main .ficha-form .form-field input:focus,main .ficha-form .form-field select:focus,main .ficha-form .form-field textarea:focus{border-color:#F97316;box-shadow:0 0 0 4px rgba(249,115,22,.3),0 0 26px rgba(249,115,22,.35)}
+main .ficha-form .form-submit{border:2px solid transparent;border-radius:999px;background:linear-gradient(135deg,#F97316,#F25C19) padding-box,linear-gradient(135deg,#fff,#9aa7b5 50%,#fff) border-box;-webkit-tap-highlight-color:transparent;transition:transform .2s var(--ease),box-shadow .25s,filter .25s}
+main .ficha-form .form-submit:hover,main .ficha-form .form-submit:focus-visible{transform:translateY(-3px);filter:brightness(1.08);box-shadow:0 0 0 3px rgba(249,115,22,.3),0 0 44px 8px rgba(249,115,22,.75)}
+main .ficha-form .form-submit:active{transform:scale(.98);filter:brightness(1.18);box-shadow:0 0 0 5px rgba(255,255,255,.35),0 0 60px 14px rgba(255,160,80,.95)}
+main .ficha-form .form-submit:focus-visible{outline:3px solid #fff;outline-offset:3px}
+main .billing-toggle button,main .view-switch button{-webkit-tap-highlight-color:transparent;transition:box-shadow .25s,transform .15s,color .25s}
+main .billing-toggle button:hover,main .view-switch button:hover{box-shadow:0 0 18px rgba(226,232,240,.5)}
+main .billing-toggle button:active,main .view-switch button:active{transform:scale(.96);box-shadow:0 0 26px rgba(255,255,255,.7)}
+main .planes-panel .plans-grid{align-items:stretch;gap:28px}
+main .planes-panel .plan-card{--spot:0;display:flex;flex-direction:column;align-items:stretch;height:100%;padding:36px 28px 30px;border:2px solid rgba(226,232,240,.65);background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,var(--spot)),transparent 62%),linear-gradient(155deg,rgba(255,255,255,.22) 0%,rgba(226,232,240,.1) 30%,rgba(148,163,184,.1) 55%,rgba(203,213,225,.16) 100%),linear-gradient(160deg,rgba(30,41,59,.62) 0%,rgba(15,23,42,.8) 100%);transition:transform .35s var(--ease),box-shadow .35s,border-color .35s,--spot .35s;-webkit-tap-highlight-color:transparent}
+main .planes-panel .plan-card:hover,main .planes-panel .plan-card:focus-within,main .planes-panel .plan-card:active{--spot:.24;transform:translateY(-12px);border-color:#fff;box-shadow:0 28px 60px rgba(0,4,16,.55),0 0 0 1px rgba(255,255,255,.55),0 0 48px rgba(226,232,240,.6)}
+main .planes-panel .plan-card:active{transform:translateY(-6px) scale(.99);box-shadow:0 18px 40px rgba(0,4,16,.55),0 0 0 3px rgba(255,255,255,.5),0 0 64px rgba(255,255,255,.7)}
+main .planes-panel .plan-card.featured{background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(255,200,150,var(--spot)),transparent 62%),linear-gradient(155deg,rgba(255,255,255,.26) 0%,rgba(226,232,240,.12) 40%,rgba(148,163,184,.12) 100%),linear-gradient(160deg,rgba(60,30,10,.6) 0%,rgba(30,15,5,.82) 100%);border-color:rgba(255,200,150,.85)}
+main .planes-panel .plan-card.featured:hover,main .planes-panel .plan-card.featured:focus-within{transform:translateY(-14px) scale(1.02);border-color:#ffe2cc;box-shadow:0 30px 64px rgba(0,4,16,.6),0 0 0 1px rgba(255,226,204,.6),0 0 60px rgba(249,115,22,.75)}
+main .planes-panel .plan-card.featured:active{transform:translateY(-6px) scale(.99);box-shadow:0 18px 40px rgba(0,4,16,.55),0 0 0 3px rgba(255,200,150,.6),0 0 76px rgba(249,115,22,.95)}
+main .planes-panel .plan-name{display:block;margin:0 0 12px;font-size:1.55rem;font-weight:800;line-height:1.2;text-align:center}
+main .planes-panel .plan-price{margin:0 0 14px;text-align:center}
+main .planes-panel .plan-desc{min-height:5.4em;margin:0 0 20px;font-size:1rem;line-height:1.65;text-align:center}
+main .planes-panel .plan-features{flex:1;width:100%;margin:0 0 26px;padding:0;list-style:none;border-top:1px solid rgba(226,232,240,.28)}
+main .planes-panel .plan-features li{display:flex;align-items:flex-start;gap:12px;padding:13px 6px;font-size:1rem;line-height:1.5;text-align:left;border-bottom:1px solid rgba(226,232,240,.16);transition:background .25s,transform .25s}
+main .planes-panel .plan-features li:hover{background:rgba(255,255,255,.08);transform:translateX(4px)}
+main .planes-panel .plan-features li svg{flex:none;width:20px;height:20px;margin-top:2px;stroke:#e8edf3}
+main .planes-panel .plan-cta{position:relative;overflow:hidden;display:block;width:100%;margin-top:auto;padding:15px 20px;border:2px solid transparent;border-radius:999px;font-size:1.05rem;font-weight:800;text-align:center;text-decoration:none;color:#0f172a;background:linear-gradient(135deg,#f8fafc 0%,#cbd5e1 50%,#94a3b8 100%) padding-box,linear-gradient(135deg,#fff,#8e9bab 50%,#fff) border-box;-webkit-tap-highlight-color:transparent;transition:transform .2s var(--ease),box-shadow .25s,filter .25s}
+main .planes-panel .plan-cta:hover,main .planes-panel .plan-cta:focus-visible{transform:translateY(-3px);filter:brightness(1.08);box-shadow:0 0 0 3px rgba(226,232,240,.3),0 0 40px 6px rgba(226,232,240,.8)}
+main .planes-panel .plan-cta:active{transform:scale(.97);filter:brightness(1.15);box-shadow:0 0 0 5px rgba(255,255,255,.45),0 0 56px 12px rgba(255,255,255,.9)}
+main .planes-panel .plan-card.featured .plan-cta{color:#fff;background:linear-gradient(135deg,#F97316 0%,#F25C19 100%) padding-box,linear-gradient(135deg,#fff,#9aa7b5 50%,#fff) border-box}
+main .planes-panel .plan-card.featured .plan-cta:hover,main .planes-panel .plan-card.featured .plan-cta:focus-visible{box-shadow:0 0 0 3px rgba(249,115,22,.3),0 0 44px 8px rgba(249,115,22,.85)}
+main .planes-panel .plan-card.featured .plan-cta:active{box-shadow:0 0 0 5px rgba(255,255,255,.4),0 0 60px 14px rgba(255,160,80,1)}
+main .planes-panel .plan-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+main .plans-table{border:2px solid rgba(226,232,240,.6)}
+main .plans-table tbody tr{transition:background .25s}
+main .plans-table tbody tr:hover{background:rgba(255,255,255,.07)}
+main .plans-table td,main .plans-table th{text-align:center;vertical-align:middle}
+main .plans-table tbody th{text-align:left}
+@media(prefers-reduced-motion:reduce){main .planes-panel .plan-card{transition:none}}
+main .planes-panel .plans-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+main .planes-panel .plan-card{padding:38px 20px 26px;text-indent:0;hyphens:none;overflow-wrap:normal;word-break:normal}
+main .planes-panel .plan-name{display:flex;align-items:center;justify-content:center;align-self:stretch;width:100%;min-height:2.6em;margin:0 0 8px;font-size:1.4rem;text-align:center}
+main .planes-panel .plan-price{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:2px 6px;min-height:5.2rem;margin:0 0 12px;line-height:1.2}
+main .planes-panel .plan-price .amount{font-size:2.5rem;line-height:1.1}
+main .planes-panel .plan-price .period{font-size:1rem}
+main .planes-panel .plan-price .plan-note-year{flex-basis:100%;margin:0;text-align:center;font-size:.95rem}
+main .planes-panel .plan-desc{flex:0 0 auto;min-height:6.6em;margin:0 0 18px;font-size:.98rem;line-height:1.65;text-align:center;text-indent:0}
+main .planes-panel .plan-features li{text-indent:0}
+main .planes-panel .plan-desc{text-align:center;text-align-last:center;hyphens:none;-webkit-hyphens:none}
+main .planes-panel .plan-features li{text-align:left;text-align-last:left;hyphens:none;-webkit-hyphens:none;justify-content:flex-start}
+main .planes-panel .plan-cta{display:flex;align-items:center;justify-content:center;min-height:4.4rem;padding:12px 14px;text-align:center;text-align-last:center;line-height:1.25}
+main .ficha-step{text-align:left;text-align-last:left;hyphens:none}
+main .ficha-intro p,main .ficha-form-head p{text-align:left;text-align-last:left;hyphens:none}
